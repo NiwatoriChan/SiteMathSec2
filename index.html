@@ -116,6 +116,7 @@
                         <li><a href="#introduction" class="hover:text-blue-200 transition duration-200">Introduction</a></li>
                         <li><a href="#arithmetique" class="hover:text-blue-200 transition duration-200">Arithmétique</a></li>
                         <li><a href="#algebre" class="hover:text-blue-200 transition duration-200">Algèbre</a></li>
+                        <li><a href="#modes-representation" class="hover:text-blue-200 transition duration-200">Représentation</a></li>
                         <li><a href="#geometrie" class="hover:text-blue-200 transition duration-200">Géométrie</a></li>
                         <li><a href="#probabilites" class="hover:text-blue-200 transition duration-200">Probabilités</a></li>
                         <li><a href="#strategie" class="hover:text-blue-200 transition duration-200">Stratégies</a></li>
@@ -130,6 +131,7 @@
                      <li><a href="#introduction" class="block py-2 px-4 hover:bg-blue-600 transition duration-200">Introduction</a></li>
                      <li><a href="#arithmetique" class="block py-2 px-4 hover:bg-blue-600 transition duration-200">Arithmétique</a></li>
                      <li><a href="#algebre" class="block py-2 px-4 hover:bg-blue-600 transition duration-200">Algèbre</a></li>
+                     <li><a href="#modes-representation" class="block py-2 px-4 hover:bg-blue-600 transition duration-200">Représentation</a></li>
                      <li><a href="#geometrie" class="block py-2 px-4 hover:bg-blue-600 transition duration-200">Géométrie</a></li>
                      <li><a href="#probabilites" class="block py-2 px-4 hover:bg-blue-600 transition duration-200">Probabilités</a></li>
                      <li><a href="#strategie" class="block py-2 px-4 hover:bg-blue-600 transition duration-200">Stratégies</a></li>
@@ -151,7 +153,7 @@
                 <div>
                     <h3 class="text-xl font-semibold mb-3 text-blue-700">Contenu évalué</h3>
                     <p class="mb-3">L'examen couvre les grandes catégories suivantes :</p>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
                         <div class="bg-blue-50 border border-blue-200 p-4 rounded-lg">
                              <h4 class="font-semibold text-blue-800 mb-2 flex items-center gap-2">
                                 <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/sigma.svg" alt="" class="icon text-blue-600">Arithmétique
@@ -174,6 +176,17 @@
                                 <li>Situations de proportionnalité</li>
                             </ul>
                         </div>
+                         <div class="bg-indigo-50 border border-indigo-200 p-4 rounded-lg">
+                             <h4 class="font-semibold text-indigo-800 mb-2 flex items-center gap-2">
+                                <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/share-2.svg" alt="" class="icon text-indigo-600">Représentation
+                             </h4>
+                            <ul class="list-disc pl-7 text-gray-700 space-y-1">
+                                <li>Description verbale</li>
+                                <li>Table de valeurs</li>
+                                <li>Règle (équation)</li>
+                                <li>Graphique</li>
+                            </ul>
+                        </div>
                         <div class="bg-yellow-50 border border-yellow-200 p-4 rounded-lg">
                              <h4 class="font-semibold text-yellow-800 mb-2 flex items-center gap-2">
                                 <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/ruler.svg" alt="" class="icon text-yellow-600">Géométrie
@@ -194,6 +207,16 @@
                                 <li>Diagramme en arbre</li>
                                 <li>Diagrammes circulaires</li>
                                 <li>Types d'événements</li>
+                            </ul>
+                        </div>
+                         <div class="bg-orange-50 border border-orange-200 p-4 rounded-lg md:col-span-1">
+                             <h4 class="font-semibold text-orange-800 mb-2 flex items-center gap-2">
+                                <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/lightbulb.svg" alt="" class="icon text-orange-500">Stratégies
+                             </h4>
+                            <ul class="list-disc pl-7 text-gray-700 space-y-1">
+                                <li>Aide-mémoire</li>
+                                <li>Techniques d'étude</li>
+                                <li>Jour de l'examen</li>
                             </ul>
                         </div>
                     </div>
@@ -253,9 +276,15 @@
                     case 'tip':
                         bgColor = 'bg-orange-50'; borderColor = 'border-orange-200'; titleColor = 'text-orange-800'; iconColorClass = 'text-orange-500';
                         break;
-                    default:
-                         bgColor = 'bg-gray-50'; borderColor = 'border-gray-200'; titleColor = 'text-gray-800'; iconColorClass = 'text-gray-500';
+                    default: // Couleur par défaut pour la section Représentation
+                         bgColor = 'bg-indigo-50'; borderColor = 'border-indigo-200'; titleColor = 'text-indigo-800'; iconColorClass = 'text-indigo-600';
                 }
+
+                // Surcharge pour les types spécifiques si nécessaire (pour garder les couleurs originales dans les autres sections)
+                 if (type === 'formula') { bgColor = 'bg-blue-50'; borderColor = 'border-blue-200'; titleColor = 'text-blue-800'; iconColorClass = 'text-blue-600'; }
+                 if (type === 'example') { bgColor = 'bg-green-50'; borderColor = 'border-green-200'; titleColor = 'text-green-800'; iconColorClass = 'text-green-600'; }
+                 if (type === 'tip') { bgColor = 'bg-orange-50'; borderColor = 'border-orange-200'; titleColor = 'text-orange-800'; iconColorClass = 'text-orange-500'; }
+
 
                 div.className = `${bgColor} border ${borderColor} p-5 rounded-lg mb-6 shadow-sm`;
                 const h4 = document.createElement('h4');
@@ -509,16 +538,68 @@
                          </script>
                      </div>
                  </div>
-
              </div>
          </section>
 
+        <section id="modes-representation" class="mb-16 scroll-mt-20">
+             <script>document.getElementById('modes-representation').appendChild(createSectionHeader('3. Modes de Représentation', 'share-2'));</script>
+             <div class="bg-white p-6 rounded-xl shadow-md space-y-8">
+                 <div class="subsection-content space-y-6">
+                     <script>
+                         const modesRep = document.querySelector('#modes-representation .subsection-content');
+                         modesRep.appendChild(createBox('default', 'Les 4 Modes Principaux', 'book-marked', `
+                             <p>Une relation entre deux variables (souvent \\(x\\) et \\(y\\)) peut être représentée de différentes manières :</p>
+                             <ul class="list-decimal pl-6 space-y-1">
+                                 <li><strong>Description verbale :</strong> Expliquer la relation avec des mots.</li>
+                                 <li><strong>Table de valeurs :</strong> Présenter des couples de valeurs (x, y) qui satisfont la relation dans un tableau.</li>
+                                 <li><strong>Règle (ou équation) :</strong> Écrire une formule algébrique liant les variables (ex: \\(y = mx + b\\)).</li>
+                                 <li><strong>Graphique :</strong> Représenter visuellement la relation dans un plan cartésien.</li>
+                             </ul>
+                             <p>Il est important de savoir passer d'un mode de représentation à un autre.</p>
+                         `));
+                         modesRep.appendChild(createBox('default', 'Exemple : Passer d\'un mode à l\'autre', 'pencil', `
+                             <p>Considérons la relation suivante :</p>
+                             <p><strong>1. Description verbale :</strong></p>
+                             <p class="ml-4">"Le coût (y) d'une location de vélo est de 5$ fixe plus 2$ par heure (x) de location."</p>
+
+                             <p class="mt-3"><strong>2. Règle (Équation) :</strong></p>
+                             <p class="ml-4">La règle qui représente cette situation est :</p>
+                             \\[ y = 2x + 5 \\]
+                             <p class="ml-4">Où \\(x\\) est le nombre d'heures et \\(y\\) est le coût total en dollars.</p>
+
+                             <p class="mt-3"><strong>3. Table de valeurs :</strong></p>
+                             <p class="ml-4">On peut calculer le coût pour différentes durées :</p>
+                             <div class="overflow-x-auto ml-4">
+                                 <table>
+                                     <thead><tr><th>Heures (x)</th><th>Coût (y = 2x + 5)</th></tr></thead>
+                                     <tbody>
+                                         <tr><td>0</td><td>\\( 2(0) + 5 = 5 \\)$</td></tr>
+                                         <tr><td>1</td><td>\\( 2(1) + 5 = 7 \\)$</td></tr>
+                                         <tr><td>2</td><td>\\( 2(2) + 5 = 9 \\)$</td></tr>
+                                         <tr><td>3</td><td>\\( 2(3) + 5 = 11 \\)$</td></tr>
+                                         <tr><td>...</td><td>...</td></tr>
+                                     </tbody>
+                                 </table>
+                             </div>
+
+                             <p class="mt-3"><strong>4. Graphique (Description) :</strong></p>
+                             <p class="ml-4">Si on plaçait ces points dans un plan cartésien (avec x en abscisse et y en ordonnée) :</p>
+                             <ul class="list-disc pl-10 text-gray-700">
+                                 <li>Les points seraient alignés.</li>
+                                 <li>On obtiendrait une droite qui commence au point (0, 5) (l'ordonnée à l'origine).</li>
+                                 <li>La droite monterait de 2 unités en y pour chaque unité avancée en x (la pente est de 2).</li>
+                             </ul>
+                         `));
+                     </script>
+                 </div>
+             </div>
+         </section>
         <section id="geometrie" class="mb-16 scroll-mt-20">
-             <script>document.getElementById('geometrie').appendChild(createSectionHeader('3. Géométrie', 'ruler'));</script>
+             <script>document.getElementById('geometrie').appendChild(createSectionHeader('4. Géométrie', 'ruler'));</script>
              <div class="bg-white p-6 rounded-xl shadow-md space-y-8">
 
                 <div class="subsection">
-                     <script>document.querySelector('#geometrie .subsection:nth-child(1)').insertBefore(createSubSectionHeader('3.1 Figures planes', 'shapes', 'bg-yellow-100 text-yellow-900'), document.querySelector('#geometrie .subsection:nth-child(1)').firstChild);</script>
+                     <script>document.querySelector('#geometrie .subsection:nth-child(1)').insertBefore(createSubSectionHeader('4.1 Figures planes', 'shapes', 'bg-yellow-100 text-yellow-900'), document.querySelector('#geometrie .subsection:nth-child(1)').firstChild);</script>
                      <div class="subsection-content space-y-6"> <script>
                              const geo1 = document.querySelector('#geometrie .subsection:nth-child(1) .subsection-content');
                              geo1.appendChild(createBox('formula', 'Formules de périmètre (P)', 'minus-square', `
@@ -566,7 +647,7 @@
                 </div>
 
                 <div class="subsection">
-                     <script>document.querySelector('#geometrie .subsection:nth-child(2)').insertBefore(createSubSectionHeader('3.2 Cercle et Disque', 'circle-dot', 'bg-yellow-100 text-yellow-900'), document.querySelector('#geometrie .subsection:nth-child(2)').firstChild);</script>
+                     <script>document.querySelector('#geometrie .subsection:nth-child(2)').insertBefore(createSubSectionHeader('4.2 Cercle et Disque', 'circle-dot', 'bg-yellow-100 text-yellow-900'), document.querySelector('#geometrie .subsection:nth-child(2)').firstChild);</script>
                      <div class="subsection-content space-y-6"> <script>
                              const geo2 = document.querySelector('#geometrie .subsection:nth-child(2) .subsection-content');
                              geo2.appendChild(createBox('formula', 'Vocabulaire du cercle', 'book-marked', `
@@ -580,7 +661,6 @@
                                      <li><strong>Angle au centre (\\( \\theta \\)):</strong> Angle dont le sommet est le centre du cercle.</li>
                                  </ul>
                              `));
-                             // MODIFICATION ICI : Ajout du raisonnement proportionnel
                              geo2.appendChild(createBox('formula', 'Formules du cercle et du disque', 'book-marked', `
                                  <div class="overflow-x-auto">
                                      <table>
@@ -629,7 +709,7 @@
                 </div>
 
                 <div class="subsection">
-                     <script>document.querySelector('#geometrie .subsection:nth-child(3)').insertBefore(createSubSectionHeader('3.3 Solides', 'box', 'bg-yellow-100 text-yellow-900'), document.querySelector('#geometrie .subsection:nth-child(3)').firstChild);</script>
+                     <script>document.querySelector('#geometrie .subsection:nth-child(3)').insertBefore(createSubSectionHeader('4.3 Solides', 'box', 'bg-yellow-100 text-yellow-900'), document.querySelector('#geometrie .subsection:nth-child(3)').firstChild);</script>
                      <div class="subsection-content space-y-6"> <script>
                              const geo3 = document.querySelector('#geometrie .subsection:nth-child(3) .subsection-content');
                              geo3.appendChild(createBox('formula', 'Formules d\'aire totale (At) et Volume (V)', 'book-marked', `
@@ -669,7 +749,7 @@
                  </div>
 
                 <div class="subsection">
-                     <script>document.querySelector('#geometrie .subsection:nth-child(4)').insertBefore(createSubSectionHeader('3.4 Figures semblables', 'copy', 'bg-yellow-100 text-yellow-900'), document.querySelector('#geometrie .subsection:nth-child(4)').firstChild);</script>
+                     <script>document.querySelector('#geometrie .subsection:nth-child(4)').insertBefore(createSubSectionHeader('4.4 Figures semblables', 'copy', 'bg-yellow-100 text-yellow-900'), document.querySelector('#geometrie .subsection:nth-child(4)').firstChild);</script>
                      <div class="subsection-content space-y-6"> <script>
                              const geo4 = document.querySelector('#geometrie .subsection:nth-child(4) .subsection-content');
                              geo4.appendChild(createBox('formula', 'Rapports de similitude (k)', 'book-marked', `
@@ -700,11 +780,11 @@
          </section>
 
         <section id="probabilites" class="mb-16 scroll-mt-20">
-             <script>document.getElementById('probabilites').appendChild(createSectionHeader('4. Probabilités et Statistiques', 'bar-chart-3'));</script>
+             <script>document.getElementById('probabilites').appendChild(createSectionHeader('5. Probabilités et Statistiques', 'bar-chart-3'));</script>
              <div class="bg-white p-6 rounded-xl shadow-md space-y-8">
 
                 <div class="subsection">
-                     <script>document.querySelector('#probabilites .subsection:nth-child(1)').insertBefore(createSubSectionHeader('4.1 Probabilités', 'dices', 'bg-purple-100 text-purple-900'), document.querySelector('#probabilites .subsection:nth-child(1)').firstChild);</script>
+                     <script>document.querySelector('#probabilites .subsection:nth-child(1)').insertBefore(createSubSectionHeader('5.1 Probabilités', 'dices', 'bg-purple-100 text-purple-900'), document.querySelector('#probabilites .subsection:nth-child(1)').firstChild);</script>
                      <div class="subsection-content space-y-6"> <script>
                              const proba1 = document.querySelector('#probabilites .subsection:nth-child(1) .subsection-content');
                              proba1.appendChild(createBox('formula', 'Formules et concepts clés', 'book-marked', `
@@ -745,7 +825,7 @@
                  </div>
 
                 <div class="subsection">
-                     <script>document.querySelector('#probabilites .subsection:nth-child(2)').insertBefore(createSubSectionHeader('4.2 Diagramme en arbre', 'git-fork', 'bg-purple-100 text-purple-900'), document.querySelector('#probabilites .subsection:nth-child(2)').firstChild);</script>
+                     <script>document.querySelector('#probabilites .subsection:nth-child(2)').insertBefore(createSubSectionHeader('5.2 Diagramme en arbre', 'git-fork', 'bg-purple-100 text-purple-900'), document.querySelector('#probabilites .subsection:nth-child(2)').firstChild);</script>
                      <div class="subsection-content space-y-6"> <script>
                              const proba2 = document.querySelector('#probabilites .subsection:nth-child(2) .subsection-content');
                              proba2.appendChild(createBox('formula', 'Utilité du diagramme en arbre', 'book-marked', `
@@ -774,7 +854,7 @@
                  </div>
 
                 <div class="subsection">
-                     <script>document.querySelector('#probabilites .subsection:nth-child(3)').insertBefore(createSubSectionHeader('4.3 Diagrammes circulaires', 'pie-chart', 'bg-purple-100 text-purple-900'), document.querySelector('#probabilites .subsection:nth-child(3)').firstChild);</script>
+                     <script>document.querySelector('#probabilites .subsection:nth-child(3)').insertBefore(createSubSectionHeader('5.3 Diagrammes circulaires', 'pie-chart', 'bg-purple-100 text-purple-900'), document.querySelector('#probabilites .subsection:nth-child(3)').firstChild);</script>
                      <div class="subsection-content space-y-6"> <script>
                              const proba3 = document.querySelector('#probabilites .subsection:nth-child(3) .subsection-content');
                              proba3.appendChild(createBox('formula', 'Création et interprétation', 'book-marked', `
@@ -812,11 +892,11 @@
          </section>
 
         <section id="strategie" class="mb-16 scroll-mt-20">
-            <script>document.getElementById('strategie').appendChild(createSectionHeader('5. Stratégies d\'étude et préparation', 'lightbulb'));</script>
+             <script>document.getElementById('strategie').appendChild(createSectionHeader('6. Stratégies d\'étude et préparation', 'lightbulb'));</script>
             <div class="bg-white p-6 rounded-xl shadow-md space-y-8">
 
                 <div class="subsection">
-                    <script>document.querySelector('#strategie .subsection:nth-child(1)').insertBefore(createSubSectionHeader('5.1 Préparation d\'un aide-mémoire efficace', 'notebook-pen', 'bg-orange-100 text-orange-900'), document.querySelector('#strategie .subsection:nth-child(1)').firstChild);</script>
+                    <script>document.querySelector('#strategie .subsection:nth-child(1)').insertBefore(createSubSectionHeader('6.1 Préparation d\'un aide-mémoire efficace', 'notebook-pen', 'bg-orange-100 text-orange-900'), document.querySelector('#strategie .subsection:nth-child(1)').firstChild);</script>
                     <div class="subsection-content space-y-6"> <script>
                             const strat1 = document.querySelector('#strategie .subsection:nth-child(1) .subsection-content');
                             strat1.appendChild(createBox('tip', 'Comment créer un bon aide-mémoire', 'lightbulb', `
@@ -846,7 +926,7 @@
                 </div>
 
                 <div class="subsection">
-                     <script>document.querySelector('#strategie .subsection:nth-child(2)').insertBefore(createSubSectionHeader('5.2 Techniques d\'étude', 'brain-circuit', 'bg-orange-100 text-orange-900'), document.querySelector('#strategie .subsection:nth-child(2)').firstChild);</script>
+                     <script>document.querySelector('#strategie .subsection:nth-child(2)').insertBefore(createSubSectionHeader('6.2 Techniques d\'étude', 'brain-circuit', 'bg-orange-100 text-orange-900'), document.querySelector('#strategie .subsection:nth-child(2)').firstChild);</script>
                      <div class="subsection-content space-y-6"> <script>
                              const strat2 = document.querySelector('#strategie .subsection:nth-child(2) .subsection-content');
                              strat2.appendChild(createBox('tip', 'Méthodes d\'étude efficaces', 'dumbbell', `
@@ -865,7 +945,7 @@
                  </div>
 
                  <div class="subsection">
-                     <script>document.querySelector('#strategie .subsection:nth-child(3)').insertBefore(createSubSectionHeader('5.3 Le jour de l\'examen', 'calendar-check', 'bg-orange-100 text-orange-900'), document.querySelector('#strategie .subsection:nth-child(3)').firstChild);</script>
+                     <script>document.querySelector('#strategie .subsection:nth-child(3)').insertBefore(createSubSectionHeader('6.3 Le jour de l\'examen', 'calendar-check', 'bg-orange-100 text-orange-900'), document.querySelector('#strategie .subsection:nth-child(3)').firstChild);</script>
                      <div class="subsection-content space-y-6"> <script>
                              const strat3 = document.querySelector('#strategie .subsection:nth-child(3) .subsection-content');
                              strat3.appendChild(createBox('tip', 'Conseils pour le jour J', 'check-circle-2', `
@@ -907,7 +987,7 @@
                  </div>
 
                  <div class="subsection">
-                     <script>document.querySelector('#strategie .subsection:nth-child(4)').insertBefore(createSubSectionHeader('5.4 Ressources supplémentaires', 'link', 'bg-orange-100 text-orange-900'), document.querySelector('#strategie .subsection:nth-child(4)').firstChild);</script>
+                     <script>document.querySelector('#strategie .subsection:nth-child(4)').insertBefore(createSubSectionHeader('6.4 Ressources supplémentaires', 'link', 'bg-orange-100 text-orange-900'), document.querySelector('#strategie .subsection:nth-child(4)').firstChild);</script>
                      <div class="subsection-content"> <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
                              <div class="bg-blue-50 border border-blue-200 p-4 rounded-lg">
                                  <h4 class="font-semibold text-blue-800 mb-2 flex items-center gap-2">
