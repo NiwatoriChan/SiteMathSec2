@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Préparation Examen Mathématiques - Secondaire 2</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        MathJax = {
+          tex: {
+            inlineMath: [['\\(', '\\)']], // Délimiteurs pour les maths en ligne
+            displayMath: [['\\[', '\\]']], // Délimiteurs pour les maths affichées
+            processEscapes: true // Permet d'utiliser \$ pour le symbole dollar
+          },
+          svg: {
+            fontCache: 'global' // Améliore la performance
+          }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+      details > summary {
+        list-style: none;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: color 0.2s ease-in-out;
+      }
+      details > summary::-webkit-details-marker { display: none; }
+      details[open] > summary { color: #1d4ed8; } /* text-blue-800 */
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* shadow-sm */
+        border-radius: 0.5rem; /* rounded-lg */
+        overflow: hidden;
+      }
+      th, td {
+        border: 1px solid #d1d5db; /* border-gray-300 */
+        padding: 0.75rem 1rem; /* p-3 px-4 */
+        text-align: left;
+        vertical-align: top;
+      }
+      th {
+        background-color: #f3f4f6; /* bg-gray-100 */
+        font-weight: 600; /* font-semibold */
+        color: #374151; /* text-gray-700 */
+      }
+      tbody tr:nth-child(even) { background-color: #f9fafb; } /* bg-gray-50 */
+
+      .icon {
+        display: inline-block;
+        vertical-align: middle;
+        width: 1.25em;
+        height: 1.25em;
+        margin-right: 0.3em;
+        margin-top: -0.1em;
+      }
+      .icon-lg {
+         width: 1.5em;
+         height: 1.5em;
+         margin-right: 0.4em;
+      }
+       .icon-sm {
+         width: 1em;
+         height: 1em;
+         margin-right: 0.2em;
+         transition: transform 0.2s ease-in-out;
+       }
+       details[open] > summary .icon-sm {
+         transform: rotate(180deg);
+       }
+       section[id] {
+           scroll-margin-top: 80px; /* Ajustez cette valeur si la hauteur du header change */
+       }
+       .scroll-mt-20 { /* correspond à 5rem ou 80px */
+           scroll-margin-top: 5rem;
+       }
+
+       /* Ajustement pour l'espacement des formules MathJax */
+       mjx-container[jax="SVG"] {
+           display: inline-block;
+           margin: 0 0.15em; /* Ajoute une petite marge horizontale */
+           vertical-align: baseline;
+       }
+       mjx-container[jax="SVG"][display="true"] {
+           display: block;
+           margin: 1em 0; /* Espace vertical pour les formules display */
+       }
+
+
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800 antialiased">
+
+    <header class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-5 shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-between items-center">
+                <h1 class="text-2xl md:text-3xl font-bold tracking-tight flex items-center gap-2">
+                    <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/calculator.svg" alt="Calculatrice" class="inline-block w-8 h-8">
+                    Prépa Examen Math S2
+                </h1>
+                <nav class="hidden md:block">
+                    <ul class="flex space-x-6">
+                        <li><a href="#introduction" class="hover:text-blue-200 transition duration-200">Introduction</a></li>
+                        <li><a href="#arithmetique" class="hover:text-blue-200 transition duration-200">Arithmétique</a></li>
+                        <li><a href="#algebre" class="hover:text-blue-200 transition duration-200">Algèbre</a></li>
+                        <li><a href="#geometrie" class="hover:text-blue-200 transition duration-200">Géométrie</a></li>
+                        <li><a href="#probabilites" class="hover:text-blue-200 transition duration-200">Probabilités</a></li>
+                        <li><a href="#strategie" class="hover:text-blue-200 transition duration-200">Stratégies</a></li>
+                    </ul>
+                </nav>
+                <button id="menu-button" class="md:hidden focus:outline-none p-2 -mr-2">
+                     <img id="menu-icon" src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/menu.svg" alt="Menu" class="w-6 h-6">
+                 </button>
+            </div>
+            <nav id="mobile-menu" class="md:hidden hidden mt-4 bg-blue-700 rounded-md shadow-lg">
+                 <ul class="flex flex-col py-2">
+                     <li><a href="#introduction" class="block py-2 px-4 hover:bg-blue-600 transition duration-200">Introduction</a></li>
+                     <li><a href="#arithmetique" class="block py-2 px-4 hover:bg-blue-600 transition duration-200">Arithmétique</a></li>
+                     <li><a href="#algebre" class="block py-2 px-4 hover:bg-blue-600 transition duration-200">Algèbre</a></li>
+                     <li><a href="#geometrie" class="block py-2 px-4 hover:bg-blue-600 transition duration-200">Géométrie</a></li>
+                     <li><a href="#probabilites" class="block py-2 px-4 hover:bg-blue-600 transition duration-200">Probabilités</a></li>
+                     <li><a href="#strategie" class="block py-2 px-4 hover:bg-blue-600 transition duration-200">Stratégies</a></li>
+                 </ul>
+             </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-10">
+
+        <section id="introduction" class="mb-16 scroll-mt-20">
+            <h2 class="text-3xl font-bold mb-6 text-blue-800 border-l-4 border-blue-600 pl-4">Introduction à l'examen final</h2>
+            <div class="bg-white p-6 rounded-xl shadow-md space-y-6">
+                <p class="text-lg">
+                    Bienvenue sur ce site dédié à la préparation de l'examen final de mathématiques de secondaire 2. Ce guide complet
+                    a été conçu pour t'aider à réviser efficacement toutes les notions du programme de mathématiques selon le curriculum québécois.
+                </p>
+
+                <div>
+                    <h3 class="text-xl font-semibold mb-3 text-blue-700">Contenu évalué</h3>
+                    <p class="mb-3">L'examen couvre les grandes catégories suivantes :</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                        <div class="bg-blue-50 border border-blue-200 p-4 rounded-lg">
+                             <h4 class="font-semibold text-blue-800 mb-2 flex items-center gap-2">
+                                <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/sigma.svg" alt="" class="icon text-blue-600">Arithmétique
+                             </h4>
+                            <ul class="list-disc pl-7 text-gray-700 space-y-1">
+                                <li>Nombres réels et opérations</li>
+                                <li>Exposants et racines carrées</li>
+                                <li>Proportions et taux</li>
+                                <li>Conversion d'unités</li>
+                            </ul>
+                        </div>
+                        <div class="bg-green-50 border border-green-200 p-4 rounded-lg">
+                             <h4 class="font-semibold text-green-800 mb-2 flex items-center gap-2">
+                                <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/variable.svg" alt="" class="icon text-green-600">Algèbre
+                             </h4>
+                            <ul class="list-disc pl-7 text-gray-700 space-y-1">
+                                <li>Expressions algébriques</li>
+                                <li>Résolution d'équations</li>
+                                <li>Suites et régularités</li>
+                                <li>Situations de proportionnalité</li>
+                            </ul>
+                        </div>
+                        <div class="bg-yellow-50 border border-yellow-200 p-4 rounded-lg">
+                             <h4 class="font-semibold text-yellow-800 mb-2 flex items-center gap-2">
+                                <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/ruler.svg" alt="" class="icon text-yellow-600">Géométrie
+                             </h4>
+                            <ul class="list-disc pl-7 text-gray-700 space-y-1">
+                                <li>Figures planes et solides</li>
+                                <li>Périmètre et aire</li>
+                                <li>Cercle et disque</li>
+                                <li>Figures semblables</li>
+                            </ul>
+                        </div>
+                        <div class="bg-purple-50 border border-purple-200 p-4 rounded-lg">
+                             <h4 class="font-semibold text-purple-800 mb-2 flex items-center gap-2">
+                                <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/bar-chart-3.svg" alt="" class="icon text-purple-600">Probabilités et Stats
+                             </h4>
+                            <ul class="list-disc pl-7 text-gray-700 space-y-1">
+                                <li>Probabilités simples/composées</li>
+                                <li>Diagramme en arbre</li>
+                                <li>Diagrammes circulaires</li>
+                                <li>Types d'événements</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-orange-50 border border-orange-200 p-5 rounded-lg">
+                     <h4 class="font-bold text-orange-800 mb-2 flex items-center gap-2">
+                        <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/lightbulb.svg" alt="" class="icon text-orange-500">Conseil important
+                     </h4>
+                    <p class="text-gray-700">Prépare un aide-mémoire sur une feuille recto-verso (format lettre 8½×11). Concentre-toi sur les formules importantes et les procédures que tu oublies souvent. Cette préparation est déjà une excellente révision !</p>
+                </div>
+            </div>
+        </section>
+
+        <script>
+            // Fonction utilitaire pour créer une icône SVG
+            function createIcon(iconName, altText = "", classes = "icon") {
+                if (!iconName) return '';
+                const img = document.createElement('img');
+                img.src = `https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/${iconName}.svg`;
+                img.alt = altText;
+                img.className = classes;
+                img.onerror = () => { img.outerHTML = `<span class="text-red-500 text-xs">[${iconName}?]</span>`; };
+                return img.outerHTML;
+            }
+
+            // Crée un en-tête de section principal
+            function createSectionHeader(title, iconName) {
+                const h2 = document.createElement('h2');
+                h2.className = 'text-2xl font-bold mb-6 text-white bg-gradient-to-r from-blue-600 to-blue-700 p-4 rounded-lg shadow-md flex items-center gap-3';
+                h2.innerHTML = createIcon(iconName, "", "icon-lg") + title;
+                return h2;
+            }
+
+            // Crée un en-tête de sous-section
+            function createSubSectionHeader(title, iconName, colorClasses) {
+                const h3 = document.createElement('h3');
+                h3.className = `text-xl font-semibold mb-4 p-3 rounded-md flex items-center gap-2 ${colorClasses}`;
+                 h3.innerHTML = createIcon(iconName, "", "icon") + title;
+                return h3;
+            }
+
+            // Crée une boîte de contenu (formule, exemple, conseil)
+            function createBox(type, title, iconName, contentHtml) {
+                if (type === 'exercise') return null;
+
+                const div = document.createElement('div');
+                let bgColor, borderColor, titleColor, iconColorClass;
+
+                switch (type) {
+                    case 'formula':
+                        bgColor = 'bg-blue-50'; borderColor = 'border-blue-200'; titleColor = 'text-blue-800'; iconColorClass = 'text-blue-600';
+                        break;
+                    case 'example':
+                        bgColor = 'bg-green-50'; borderColor = 'border-green-200'; titleColor = 'text-green-800'; iconColorClass = 'text-green-600';
+                        break;
+                    case 'tip':
+                        bgColor = 'bg-orange-50'; borderColor = 'border-orange-200'; titleColor = 'text-orange-800'; iconColorClass = 'text-orange-500';
+                        break;
+                    default:
+                         bgColor = 'bg-gray-50'; borderColor = 'border-gray-200'; titleColor = 'text-gray-800'; iconColorClass = 'text-gray-500';
+                }
+
+                div.className = `${bgColor} border ${borderColor} p-5 rounded-lg mb-6 shadow-sm`;
+                const h4 = document.createElement('h4');
+                h4.className = `font-bold ${titleColor} mb-3 flex items-center gap-2 text-lg`;
+                h4.innerHTML = createIcon(iconName, "", `icon ${iconColorClass}`) + title;
+
+                div.appendChild(h4);
+                const contentDiv = document.createElement('div');
+                contentDiv.className = 'space-y-3 prose prose-sm max-w-none prose-headings:my-2 prose-p:my-1 prose-ul:my-1 prose-table:my-2 prose-hr:my-3';
+                contentDiv.innerHTML = contentHtml;
+                div.appendChild(contentDiv);
+                return div;
+            }
+
+             // Fonction pour créer les solutions - INUTILISÉE
+             function createSolutionDetails(solutionHtml) { return null; }
+        </script>
+
+        <section id="arithmetique" class="mb-16 scroll-mt-20">
+            <script>document.getElementById('arithmetique').appendChild(createSectionHeader('1. Arithmétique', 'sigma'));</script>
+            <div class="bg-white p-6 rounded-xl shadow-md space-y-8">
+
+                <div class="subsection">
+                    <script>document.querySelector('#arithmetique .subsection:nth-child(1)').insertBefore(createSubSectionHeader('1.1 Exposants et racines carrées', 'superscript', 'bg-blue-100 text-blue-900'), document.querySelector('#arithmetique .subsection:nth-child(1)').firstChild);</script>
+                    <div class="subsection-content space-y-6"> <script>
+                            const arith1 = document.querySelector('#arithmetique .subsection:nth-child(1) .subsection-content');
+                            arith1.appendChild(createBox('formula', 'Formules importantes', 'book-marked', `
+                                <ul class="list-none space-y-2">
+                                    <li>\\( a^m \\times a^n = a^{m+n} \\) - Multiplication (même base)</li>
+                                    <li>\\( a^m \\div a^n = a^{m-n} \\) - Division (même base)</li>
+                                    <li>\\( (a^m)^n = a^{m \\times n} \\) - Puissance d'une puissance</li>
+                                    <li>\\( a^0 = 1 \\) (si \\( a \\neq 0 \\))</li>
+                                    <li>\\( \\sqrt{a} \\) - Racine carrée (\\( a \\ge 0 \\))</li>
+                                    <li>\\( a^{1/2} = \\sqrt{a} \\)</li>
+                                </ul>
+                            `));
+                            arith1.appendChild(createBox('example', 'Exemples', 'pencil', `
+                                <div>
+                                    <p><strong>Exemple 1:</strong> Calcule \\( 2^3 \\times 2^4 \\)</p>
+                                    <p class="text-green-700 font-medium mt-1">Solution: \\( 2^{3+4} = 2^7 = 128 \\)</p>
+                                </div>
+                                <hr class="border-green-200">
+                                <div>
+                                    <p><strong>Exemple 2:</strong> Simplifie \\( (3^2)^3 \\)</p>
+                                    <p class="text-green-700 font-medium mt-1">Solution: \\( 3^{2 \\times 3} = 3^6 = 729 \\)</p>
+                                </div>
+                                <hr class="border-green-200">
+                                <div>
+                                    <p><strong>Exemple 3:</strong> Calcule \\( \\sqrt{81} \\)</p>
+                                    <p class="text-green-700 font-medium mt-1">Solution: \\( 9 \\) (car \\( 9^2 = 81 \\))</p>
+                                </div>
+                            `));
+                        </script>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                     <script>document.querySelector('#arithmetique .subsection:nth-child(2)').insertBefore(createSubSectionHeader('1.2 Proportions et taux', 'scale', 'bg-blue-100 text-blue-900'), document.querySelector('#arithmetique .subsection:nth-child(2)').firstChild);</script>
+                     <div class="subsection-content space-y-6"> <script>
+                             const arith2 = document.querySelector('#arithmetique .subsection:nth-child(2) .subsection-content');
+                             arith2.appendChild(createBox('formula', 'Formules importantes', 'book-marked', `
+                                 <ul class="list-none space-y-2">
+                                     <li>Proportion: \\( \\frac{a}{b} = \\frac{c}{d} \\)</li>
+                                     <li>Produit croisé: \\( a \\times d = b \\times c \\)</li>
+                                     <li>Taux: \\( \\frac{\\text{quantité}}{\\text{temps}} \\) ou \\( \\frac{\\text{quantité}}{\\text{unité}} \\)</li>
+                                     <li>Rapport: \\( \\frac{a}{b} \\) ou \\( a:b \\)</li>
+                                 </ul>
+                             `));
+                             arith2.appendChild(createBox('example', 'Exemples', 'pencil', `
+                                <div>
+                                     <p><strong>Exemple 1:</strong> Si 3 pommes coûtent 1,50$, combien coûtent 8 pommes?</p>
+                                     <div class="text-green-700 font-medium mt-1 space-y-1">
+                                         <p class="ml-4">Proportion: \\( \\frac{3}{1.50} = \\frac{8}{x} \\)</p>
+                                         <p class="ml-4">Produit croisé: \\( 3x = 1.50 \\times 8 \\)</p>
+                                         <p class="ml-4">\\( 3x = 12 \\)</p>
+                                         <p class="ml-4">Résolution: \\( x = \\frac{12}{3} = 4 \\)$</p>
+                                         <p class="ml-4">Donc 8 pommes coûtent 4$.</p>
+                                     </div>
+                                 </div>
+                                 <hr class="border-green-200">
+                                 <div>
+                                     <p><strong>Exemple 2:</strong> Si une voiture parcourt 240 km en 3 heures, quelle est sa vitesse moyenne?</p>
+                                     <p class="text-green-700 font-medium mt-1">Solution: Vitesse \\( = \\frac{240 \\text{ km}}{3 \\text{ h}} = 80 \\text{ km/h} \\)</p>
+                                 </div>
+                             `));
+                         </script>
+                     </div>
+                 </div>
+
+                <div class="subsection">
+                     <script>document.querySelector('#arithmetique .subsection:nth-child(3)').insertBefore(createSubSectionHeader('1.3 Conversion d\'unités', 'replace', 'bg-blue-100 text-blue-900'), document.querySelector('#arithmetique .subsection:nth-child(3)').firstChild);</script>
+                     <div class="subsection-content space-y-6"> <script>
+                             const arith3 = document.querySelector('#arithmetique .subsection:nth-child(3) .subsection-content');
+                             arith3.appendChild(createBox('formula', 'Tableaux de conversion', 'book-marked', `
+                                 <div>
+                                     <p class="font-semibold mt-2 mb-1">Unités de longueur (\\( \\times 10 \\) ou \\( \\div 10 \\) par colonne)</p>
+                                     <div class="overflow-x-auto">
+                                         <table>
+                                             <thead><tr><th>km</th><th>hm</th><th>dam</th><th>m</th><th>dm</th><th>cm</th><th>mm</th></tr></thead>
+                                             <tbody><tr><td>0,001</td><td>0,01</td><td>0,1</td><td>1</td><td>10</td><td>100</td><td>1000</td></tr></tbody>
+                                         </table>
+                                     </div>
+                                 </div>
+                                 <div>
+                                     <p class="font-semibold mt-4 mb-1">Unités d'aire (\\( \\times 100 \\) ou \\( \\div 100 \\) par colonne)</p>
+                                     <div class="overflow-x-auto">
+                                         <table>
+                                             <thead><tr><th>km²</th><th>hm²</th><th>dam²</th><th>m²</th><th>dm²</th><th>cm²</th><th>mm²</th></tr></thead>
+                                             <tbody><tr><td>\\(10^{-6}\\)</td><td>\\(10^{-4}\\)</td><td>\\(10^{-2}\\)</td><td>1</td><td>\\(10^2\\)</td><td>\\(10^4\\)</td><td>\\(10^6\\)</td></tr></tbody>
+                                         </table>
+                                     </div>
+                                 </div>
+                                 <div class="mt-3 p-3 bg-blue-100 border border-blue-300 rounded-md text-sm">
+                                     <p><strong>Attention :</strong> Pour les aires, le facteur est 100. Pour les volumes (non montré), c'est 1000.</p>
+                                 </div>
+                             `));
+                             arith3.appendChild(createBox('example', 'Exemples', 'pencil', `
+                                 <div>
+                                     <p><strong>Exemple 1:</strong> Convertis 3,5 km en m</p>
+                                     <p class="text-green-700 font-medium mt-1">Solution: \\( 3.5 \\text{ km} \\times 1000 = 3500 \\text{ m} \\)</p>
+                                 </div>
+                                 <hr class="border-green-200">
+                                 <div>
+                                     <p><strong>Exemple 2:</strong> Convertis 250 cm² en m²</p>
+                                     <p class="text-green-700 font-medium mt-1">Solution: \\( 250 \\text{ cm}^2 \\div 10000 = 0.025 \\text{ m}^2 \\)</p>
+                                 </div>
+                             `));
+                         </script>
+                     </div>
+                 </div>
+
+            </div>
+        </section>
+
+        <section id="algebre" class="mb-16 scroll-mt-20">
+             <script>document.getElementById('algebre').appendChild(createSectionHeader('2. Algèbre', 'variable'));</script>
+             <div class="bg-white p-6 rounded-xl shadow-md space-y-8">
+
+                 <div class="subsection">
+                     <script>document.querySelector('#algebre .subsection:nth-child(1)').insertBefore(createSubSectionHeader('2.1 Expressions algébriques', 'brackets', 'bg-green-100 text-green-900'), document.querySelector('#algebre .subsection:nth-child(1)').firstChild);</script>
+                     <div class="subsection-content space-y-6"> <script>
+                             const algebre1 = document.querySelector('#algebre .subsection:nth-child(1) .subsection-content');
+                             algebre1.appendChild(createBox('formula', 'Vocabulaire et concepts', 'book-marked', `
+                                 <ul class="list-none space-y-2">
+                                     <li><strong>Terme :</strong> Partie séparée par + ou - (ex: \\( 3x^2 \\))</li>
+                                     <li><strong>Coefficient :</strong> Nombre devant la variable (ex: 3 dans \\( 3x^2 \\))</li>
+                                     <li><strong>Variable :</strong> Lettre (ex: x)</li>
+                                     <li><strong>Degré d'un terme :</strong> Somme des exposants des variables (ex: degré 2 pour \\( 3x^2 \\))</li>
+                                     <li><strong>Degré d'un polynôme :</strong> Plus haut degré des termes</li>
+                                     <li><strong>Monôme, Binôme, Trinôme, Polynôme :</strong> 1, 2, 3, ou plusieurs termes</li>
+                                     <li><strong>Termes semblables :</strong> Mêmes variables avec mêmes exposants (ex: \\( 3x^2 \\) et \\( -5x^2 \\))</li>
+                                 </ul>
+                             `));
+                             algebre1.appendChild(createBox('example', 'Exemple d\'analyse', 'pencil', `
+                                 <p>Pour l'expression \\( 3x^2 - 5x + 7 \\) :</p>
+                                 <ul class="list-disc pl-6 mt-2 text-gray-700">
+                                     <li>\\( 3x^2 \\) : terme, coefficient 3, degré 2</li>
+                                     <li>\\( -5x \\) : terme, coefficient -5, degré 1</li>
+                                     <li>\\( 7 \\) : terme constant, degré 0</li>
+                                     <li>C'est un <strong>trinôme</strong> de <strong>degré 2</strong>.</li>
+                                 </ul>
+                             `));
+                             algebre1.appendChild(createBox('formula', 'Opérations sur les expressions', 'function-square', `
+                                 <p><strong>Addition/Soustraction :</strong> Additionner/soustraire les coefficients des termes <strong>semblables</strong>.</p>
+                                 <p><strong>Multiplication :</strong> Multiplier les coefficients, additionner les exposants des variables identiques.</p>
+                                 <p><strong>Division (monôme / constante) :</strong> Diviser le coefficient.</p>
+                             `));
+                             algebre1.appendChild(createBox('example', 'Exemples d\'opérations', 'pencil', `
+                                <div>
+                                     <p><strong>Exemple 1 (Addition):</strong> \\( (3x^2 + 5x - 2) + (4x^2 - 3x + 1) \\)</p>
+                                     <p class="text-green-700 font-medium mt-1">Solution: \\( (3+4)x^2 + (5-3)x + (-2+1) = 7x^2 + 2x - 1 \\)</p>
+                                 </div>
+                                 <hr class="border-green-200">
+                                 <div>
+                                     <p><strong>Exemple 2 (Soustraction):</strong> \\( (7x - 3) - (2x + 4) \\)</p>
+                                     <p class="text-green-700 font-medium mt-1">Solution: \\( 7x - 3 - 2x - 4 = (7-2)x + (-3-4) = 5x - 7 \\)</p>
+                                  </div>
+                                  <hr class="border-green-200">
+                                 <div>
+                                     <p><strong>Exemple 3 (Multiplication):</strong> \\( 3x^2 \\times 2x \\)</p>
+                                     <p class="text-green-700 font-medium mt-1">Solution: \\( (3 \\times 2) x^{2+1} = 6x^3 \\)</p>
+                                 </div>
+                             `));
+                         </script>
+                     </div>
+                 </div>
+
+                 <div class="subsection">
+                     <script>document.querySelector('#algebre .subsection:nth-child(2)').insertBefore(createSubSectionHeader('2.2 Résolution d\'équations', 'equal-not', 'bg-green-100 text-green-900'), document.querySelector('#algebre .subsection:nth-child(2)').firstChild);</script>
+                     <div class="subsection-content space-y-6"> <script>
+                             const algebre2 = document.querySelector('#algebre .subsection:nth-child(2) .subsection-content');
+                             algebre2.appendChild(createBox('formula', 'Méthode de résolution (ax + b = cx + d)', 'book-marked', `
+                                 <ol class="list-decimal pl-6 space-y-1">
+                                     <li>Regrouper les termes variables d'un côté.</li>
+                                     <li>Regrouper les termes constants de l'autre côté.</li>
+                                     <li>Isoler la variable (souvent par division).</li>
+                                     <li><strong>Vérifier</strong> la solution dans l'équation originale.</li>
+                                 </ol>
+                             `));
+                             algebre2.appendChild(createBox('example', 'Exemples de résolution', 'pencil', `
+                                <div>
+                                     <p><strong>Exemple 1:</strong> Résous \\( 3x + 4 = 13 \\)</p>
+                                     <div class="text-green-700 font-medium mt-1 space-y-1">
+                                         <p class="ml-4">Étape 1: \\( 3x = 13 - 4 \\)</p>
+                                         <p class="ml-4">Étape 2: \\( 3x = 9 \\)</p>
+                                         <p class="ml-4">Étape 3: \\( x = \\frac{9}{3} \\)</p>
+                                         <p class="ml-4">Solution: \\( x = 3 \\)</p>
+                                         <p class="ml-4 text-xs text-gray-500">Vérif: \\( 3(3)+4 = 9+4 = 13 \\) ✓</p>
+                                     </div>
+                                 </div>
+                                 <hr class="border-green-200">
+                                  <div>
+                                     <p><strong>Exemple 2:</strong> Résous \\( 2x - 5 = 4x + 7 \\)</p>
+                                     <div class="text-green-700 font-medium mt-1 space-y-1">
+                                         <p class="ml-4">Étape 1: \\( 2x - 4x = 7 + 5 \\)</p>
+                                         <p class="ml-4">Étape 2: \\( -2x = 12 \\)</p>
+                                         <p class="ml-4">Étape 3: \\( x = \\frac{12}{-2} \\)</p>
+                                         <p class="ml-4">Solution: \\( x = -6 \\)</p>
+                                         <p class="ml-4 text-xs text-gray-500">Vérif: \\( 2(-6)-5 = -17 \\); \\( 4(-6)+7 = -17 \\) ✓</p>
+                                     </div>
+                                 </div>
+                             `));
+                             algebre2.appendChild(createBox('formula', 'Traduction d\'énoncés', 'languages', `
+                                 <div class="overflow-x-auto">
+                                     <table>
+                                         <thead><tr><th>Français</th><th>Algèbre</th></tr></thead>
+                                         <tbody>
+                                             <tr><td>La somme de x et 5</td><td>\\( x + 5 \\)</td></tr>
+                                             <tr><td>Le produit de 3 et x</td><td>\\( 3x \\)</td></tr>
+                                             <tr><td>x diminué de 7</td><td>\\( x - 7 \\)</td></tr>
+                                             <tr><td>Le quotient de x par 2</td><td>\\( \\frac{x}{2} \\)</td></tr>
+                                             <tr><td>Le double de x</td><td>\\( 2x \\)</td></tr>
+                                             <tr><td>Le carré de x</td><td>\\( x^2 \\)</td></tr>
+                                             <tr><td>Trois nombres consécutifs</td><td>\\( x, x+1, x+2 \\)</td></tr>
+                                             <tr><td>Trois nombres pairs consécutifs</td><td>\\( x, x+2, x+4 \\) (si x est pair)</td></tr>
+                                         </tbody>
+                                     </table>
+                                 </div>
+                             `));
+                             algebre2.appendChild(createBox('example', 'Exemple de problème écrit', 'pencil', `
+                                 <p><strong>Problème:</strong> La somme de trois nombres consécutifs est 51. Quels sont ces nombres?</p>
+                                 <div class="text-green-700 font-medium mt-1 space-y-1">
+                                     <p class="ml-4">Nombres: \\( x, x+1, x+2 \\)</p>
+                                     <p class="ml-4">Équation: \\( x + (x+1) + (x+2) = 51 \\)</p>
+                                     <p class="ml-4">Réduction: \\( 3x + 3 = 51 \\)</p>
+                                     <p class="ml-4">Résolution: \\( 3x = 48 \\) → \\( x = \\frac{48}{3} = 16 \\)</p>
+                                     <p class="ml-4">Les nombres sont 16, 17 et 18.</p>
+                                      <p class="ml-4 text-xs text-gray-500">Vérif: \\( 16+17+18 = 51 \\) ✓</p>
+                                 </div>
+                             `));
+                         </script>
+                     </div>
+                 </div>
+
+             </div>
+         </section>
+
+        <section id="geometrie" class="mb-16 scroll-mt-20">
+             <script>document.getElementById('geometrie').appendChild(createSectionHeader('3. Géométrie', 'ruler'));</script>
+             <div class="bg-white p-6 rounded-xl shadow-md space-y-8">
+
+                <div class="subsection">
+                     <script>document.querySelector('#geometrie .subsection:nth-child(1)').insertBefore(createSubSectionHeader('3.1 Figures planes', 'shapes', 'bg-yellow-100 text-yellow-900'), document.querySelector('#geometrie .subsection:nth-child(1)').firstChild);</script>
+                     <div class="subsection-content space-y-6"> <script>
+                             const geo1 = document.querySelector('#geometrie .subsection:nth-child(1) .subsection-content');
+                             geo1.appendChild(createBox('formula', 'Formules de périmètre (P)', 'minus-square', `
+                                 <div class="overflow-x-auto">
+                                     <table>
+                                         <thead><tr><th>Figure</th><th>Formule</th></tr></thead>
+                                         <tbody>
+                                             <tr><td>Carré (côté c)</td><td>\\( P = 4c \\)</td></tr>
+                                             <tr><td>Rectangle (L, l)</td><td>\\( P = 2L + 2l \\) ou \\( P = 2(L + l) \\)</td></tr>
+                                             <tr><td>Triangle (côtés a, b, c)</td><td>\\( P = a + b + c \\)</td></tr>
+                                             <tr><td>Polygone régulier (n côtés, côté c)</td><td>\\( P = n \\times c \\)</td></tr>
+                                         </tbody>
+                                     </table>
+                                 </div>
+                             `));
+                              geo1.appendChild(createBox('formula', 'Formules d\'aire (A)', 'square', `
+                                 <div class="overflow-x-auto">
+                                     <table>
+                                         <thead><tr><th>Figure</th><th>Formule</th></tr></thead>
+                                         <tbody>
+                                             <tr><td>Carré (côté c)</td><td>\\( A = c^2 \\)</td></tr>
+                                             <tr><td>Rectangle (L, l)</td><td>\\( A = L \\times l \\)</td></tr>
+                                             <tr><td>Triangle (base b, hauteur h)</td><td>\\( A = \\frac{b \\times h}{2} \\)</td></tr>
+                                             <tr><td>Parallélogramme (base b, hauteur h)</td><td>\\( A = b \\times h \\)</td></tr>
+                                             <tr><td>Losange (diagonales \\(d_1, d_2\\))</td><td>\\( A = \\frac{d_1 \\times d_2}{2} \\)</td></tr>
+                                             <tr><td>Trapèze (bases B, b, hauteur h)</td><td>\\( A = \\frac{(B + b) \\times h}{2} \\)</td></tr>
+                                             <tr><td>Polygone régulier (périm P, apothème a)</td><td>\\( A = \\frac{P \\times a}{2} \\)</td></tr>
+                                         </tbody>
+                                     </table>
+                                 </div>
+                             `));
+                             geo1.appendChild(createBox('example', 'Exemples (Figures planes)', 'pencil', `
+                                <div>
+                                     <p><strong>Exemple 1:</strong> Périmètre et aire d'un rectangle L=12cm, l=5cm.</p>
+                                     <p class="text-green-700 font-medium mt-1">Solution: \\( P = 2(12+5) = 34 \\) cm; \\( A = 12 \\times 5 = 60 \\) cm²</p>
+                                 </div>
+                                 <hr class="border-green-200">
+                                 <div>
+                                     <p><strong>Exemple 2:</strong> Aire d'un triangle b=8cm, h=6cm.</p>
+                                     <p class="text-green-700 font-medium mt-1">Solution: \\( A = \\frac{8 \\times 6}{2} = 24 \\) cm²</p>
+                                 </div>
+                             `));
+                         </script>
+                     </div>
+                </div>
+
+                <div class="subsection">
+                     <script>document.querySelector('#geometrie .subsection:nth-child(2)').insertBefore(createSubSectionHeader('3.2 Cercle et Disque', 'circle-dot', 'bg-yellow-100 text-yellow-900'), document.querySelector('#geometrie .subsection:nth-child(2)').firstChild);</script>
+                     <div class="subsection-content space-y-6"> <script>
+                             const geo2 = document.querySelector('#geometrie .subsection:nth-child(2) .subsection-content');
+                             geo2.appendChild(createBox('formula', 'Vocabulaire du cercle', 'book-marked', `
+                                 <ul class="list-disc pl-6 space-y-1">
+                                     <li><strong>Rayon (r):</strong> Segment reliant le centre à un point du cercle.</li>
+                                     <li><strong>Diamètre (d):</strong> Segment passant par le centre et reliant deux points du cercle. \\( d = 2r \\)</li>
+                                     <li><strong>Circonférence (C):</strong> Périmètre du cercle.</li>
+                                     <li><strong>Disque:</strong> Surface intérieure du cercle.</li>
+                                     <li><strong>Arc de cercle:</strong> Portion de la circonférence.</li>
+                                     <li><strong>Secteur circulaire:</strong> Portion du disque délimitée par deux rayons et un arc.</li>
+                                     <li><strong>Angle au centre (\\( \\theta \\)):</strong> Angle dont le sommet est le centre du cercle.</li>
+                                 </ul>
+                             `));
+                             // MODIFICATION ICI : Ajout du raisonnement proportionnel
+                             geo2.appendChild(createBox('formula', 'Formules du cercle et du disque', 'book-marked', `
+                                 <div class="overflow-x-auto">
+                                     <table>
+                                         <thead><tr><th>Mesure</th><th>Formule</th><th>Description</th></tr></thead>
+                                         <tbody>
+                                             <tr><td>Circonférence (C)</td><td>\\( C = 2\\pi r \\) ou \\( C = \\pi d \\)</td><td>Longueur du contour du cercle.</td></tr>
+                                             <tr><td>Aire du disque (A)</td><td>\\( A = \\pi r^2 \\)</td><td>Surface intérieure du cercle.</td></tr>
+                                             <tr><td>Longueur d'un arc (L<sub>arc</sub>)</td><td>\\( L_{\\text{arc}} = \\frac{\\theta}{360^\\circ} \\times 2\\pi r \\)</td><td>Longueur d'une portion de la circonférence, où \\( \\theta \\) est l'angle au centre en degrés.</td></tr>
+                                             <tr><td>Aire d'un secteur (A<sub>secteur</sub>)</td><td>\\( A_{\\text{secteur}} = \\frac{\\theta}{360^\\circ} \\times \\pi r^2 \\)</td><td>Aire d'une portion du disque, où \\( \\theta \\) est l'angle au centre en degrés.</td></tr>
+                                         </tbody>
+                                     </table>
+                                 </div>
+                                 <hr class="my-4 border-blue-200">
+                                 <h5 class="font-semibold text-blue-700 mb-2">Raisonnement Proportionnel (Produit croisé)</h5>
+                                 <p>On peut aussi trouver la longueur d'arc et l'aire de secteur en utilisant des proportions :</p>
+                                 <ul class="list-disc pl-6 space-y-2 mt-2">
+                                     <li>
+                                         <strong>Longueur d'arc :</strong> La proportion de l'angle au centre sur 360° est égale à la proportion de la longueur de l'arc sur la circonférence totale.
+                                         \\[ \\frac{\\text{Longueur de l'arc}}{\\text{Circonférence}} = \\frac{\\text{Angle au centre}}{360^\\circ} \\]
+                                         \\[ \\frac{L_{\\text{arc}}}{2\\pi r} = \\frac{\\theta}{360^\\circ} \\]
+                                         Par produit croisé : \\( L_{\\text{arc}} \\times 360^\\circ = \\theta \\times 2\\pi r \\), ce qui donne la même formule: \\( L_{\\text{arc}} = \\frac{\\theta \\times 2\\pi r}{360^\\circ} \\)
+                                     </li>
+                                     <li>
+                                         <strong>Aire de secteur :</strong> La proportion de l'angle au centre sur 360° est égale à la proportion de l'aire du secteur sur l'aire totale du disque.
+                                         \\[ \\frac{\\text{Aire du secteur}}{\\text{Aire du disque}} = \\frac{\\text{Angle au centre}}{360^\\circ} \\]
+                                         \\[ \\frac{A_{\\text{secteur}}}{\\pi r^2} = \\frac{\\theta}{360^\\circ} \\]
+                                         Par produit croisé : \\( A_{\\text{secteur}} \\times 360^\\circ = \\theta \\times \\pi r^2 \\), ce qui donne la même formule: \\( A_{\\text{secteur}} = \\frac{\\theta \\times \\pi r^2}{360^\\circ} \\)
+                                     </li>
+                                 </ul>
+                                 <p class="text-sm mt-3 text-gray-600">Rappel : \\( \\pi \\approx 3,14159... \\)</p>
+                             `));
+                             geo2.appendChild(createBox('example', 'Exemples (Cercle)', 'pencil', `
+                                <div>
+                                     <p><strong>Exemple 1:</strong> Circonférence et aire d'un cercle de rayon 5 cm.</p>
+                                     <p class="text-green-700 font-medium mt-1">Solution: \\( C = 2\\pi(5) = 10\\pi \\approx 31.42 \\) cm; \\( A = \\pi(5)^2 = 25\\pi \\approx 78.54 \\) cm²</p>
+                                 </div>
+                                 <hr class="border-green-200">
+                                 <div>
+                                     <p><strong>Exemple 2:</strong> Longueur de l'arc et aire du secteur pour un angle au centre de 60° dans un cercle de rayon 12 cm.</p>
+                                     <p class="text-green-700 font-medium mt-1">Solution Arc: \\( L_{\\text{arc}} = \\frac{60}{360} \\times 2\\pi(12) = \\frac{1}{6} \\times 24\\pi = 4\\pi \\approx 12.57 \\) cm</p>
+                                     <p class="text-green-700 font-medium mt-1">Solution Secteur: \\( A_{\\text{secteur}} = \\frac{60}{360} \\times \\pi(12)^2 = \\frac{1}{6} \\times 144\\pi = 24\\pi \\approx 75.40 \\) cm²</p>
+                                 </div>
+                             `));
+                         </script>
+                     </div>
+                </div>
+
+                <div class="subsection">
+                     <script>document.querySelector('#geometrie .subsection:nth-child(3)').insertBefore(createSubSectionHeader('3.3 Solides', 'box', 'bg-yellow-100 text-yellow-900'), document.querySelector('#geometrie .subsection:nth-child(3)').firstChild);</script>
+                     <div class="subsection-content space-y-6"> <script>
+                             const geo3 = document.querySelector('#geometrie .subsection:nth-child(3) .subsection-content');
+                             geo3.appendChild(createBox('formula', 'Formules d\'aire totale (At) et Volume (V)', 'book-marked', `
+                                 <div class="overflow-x-auto">
+                                     <table>
+                                         <thead><tr><th>Solide</th><th>Aire Totale (\\(A_t\\))</th><th>Volume (V)</th></tr></thead>
+                                         <tbody>
+                                             <tr><td>Cube (arête a)</td><td>\\(A_t = 6a^2\\)</td><td>\\(V = a^3\\)</td></tr>
+                                             <tr><td>Prisme droit (Aire base \\(A_b\\), Périm. base \\(P_b\\), hauteur h)</td><td>\\(A_t = 2A_b + P_b \\times h\\)</td><td>\\(V = A_b \\times h\\)</td></tr>
+                                             <tr><td>Cylindre (rayon r, hauteur h)</td><td>\\(A_t = 2\\pi r^2 + 2\\pi rh\\)</td><td>\\(V = \\pi r^2 h\\)</td></tr>
+                                             <tr><td>Pyramide régulière (Aire base \\(A_b\\), Périm. base \\(P_b\\), apothème \\(a_p\\), hauteur h)</td><td>\\(A_t = A_b + \\frac{P_b \\times a_p}{2}\\)</td><td>\\(V = \\frac{A_b \\times h}{3}\\)</td></tr>
+                                             <tr><td>Cône (rayon r, génératrice g, hauteur h)</td><td>\\(A_t = \\pi r^2 + \\pi rg\\)</td><td>\\(V = \\frac{\\pi r^2 h}{3}\\)</td></tr>
+                                             <tr><td>Sphère (rayon r)</td><td>\\(A_t = 4\\pi r^2\\)</td><td>\\(V = \\frac{4}{3}\\pi r^3\\)</td></tr>
+                                         </tbody>
+                                     </table>
+                                 </div>
+                                 <p class="text-sm mt-2 text-gray-600">* Aire latérale (\\(A_l\\)) = \\(P_b \\times h\\) (prismes/cylindres) ou \\(\\frac{P_b \\times a_p}{2}\\) (pyramides) ou \\( \\pi rg \\) (cônes).</p>
+                             `));
+                             geo3.appendChild(createBox('example', 'Exemples (Solides)', 'pencil', `
+                                <div>
+                                     <p><strong>Exemple 1:</strong> Aire totale d'un cube \\(a=4\\)cm.</p>
+                                     <p class="text-green-700 font-medium mt-1">Solution: \\( A_t = 6 \\times 4^2 = 6 \\times 16 = 96 \\) cm²</p>
+                                 </div>
+                                 <hr class="border-green-200">
+                                 <div>
+                                     <p><strong>Exemple 2:</strong> Aire totale d'un prisme rect. L=10, l=6, h=4 cm.</p>
+                                     <p class="text-green-700 font-medium mt-1">Solution: \\( A_t = 2(10 \\times 6 + 10 \\times 4 + 6 \\times 4) = 2(60+40+24) = 2(124) = 248 \\) cm²</p>
+                                  </div>
+                                  <hr class="border-green-200">
+                                 <div>
+                                     <p><strong>Exemple 3:</strong> Aire totale d'un cylindre \\(r=3\\)cm, \\(h=8\\)cm.</p>
+                                     <p class="text-green-700 font-medium mt-1">Solution: \\( A_t = 2\\pi(3)^2 + 2\\pi(3)(8) = 18\\pi + 48\\pi = 66\\pi \\approx 207.35 \\) cm²</p>
+                                 </div>
+                             `));
+                         </script>
+                     </div>
+                 </div>
+
+                <div class="subsection">
+                     <script>document.querySelector('#geometrie .subsection:nth-child(4)').insertBefore(createSubSectionHeader('3.4 Figures semblables', 'copy', 'bg-yellow-100 text-yellow-900'), document.querySelector('#geometrie .subsection:nth-child(4)').firstChild);</script>
+                     <div class="subsection-content space-y-6"> <script>
+                             const geo4 = document.querySelector('#geometrie .subsection:nth-child(4) .subsection-content');
+                             geo4.appendChild(createBox('formula', 'Rapports de similitude (k)', 'book-marked', `
+                                 <p class="mb-2">Si \\( k \\) est le rapport des longueurs correspondantes (figure image / figure initiale) :</p>
+                                 <ul class="list-disc pl-6 space-y-1">
+                                     <li>Rapport des périmètres = \\( k \\)</li>
+                                     <li>Rapport des aires = \\( k^2 \\)</li>
+                                     <li>Rapport des volumes = \\( k^3 \\)</li>
+                                 </ul>
+                                 <p class="text-sm mt-2 text-gray-600">Ex: Si \\(k=2\\) (agrandissement), les aires sont \\(k^2=4\\) fois plus grandes.</p>
+                             `));
+                             geo4.appendChild(createBox('example', 'Exemples (Similitude)', 'pencil', `
+                                <div>
+                                     <p><strong>Exemple 1:</strong> Triangles semblables côtés (6,8,10) et (9,12,15). Rapports \\(k\\) et \\(k^2\\)?</p>
+                                     <p class="text-green-700 font-medium mt-1">Solution: \\( k = \\frac{9}{6} = 1.5 \\). Rapport aires \\( k^2 = (1.5)^2 = 2.25 \\).</p>
+                                 </div>
+                                 <hr class="border-green-200">
+                                 <div>
+                                     <p><strong>Exemple 2:</strong> Rectangle 10x15 cm. Rectangle semblable longueur 25 cm. Dimensions et rapport aires?</p>
+                                     <p class="text-green-700 font-medium mt-1">Solution: \\( k = \\frac{25}{15} = \\frac{5}{3} \\). Largeur₂ = \\( 10 \\times \\frac{5}{3} \\approx 16.67 \\) cm. Rapport aires \\( k^2 = (\\frac{5}{3})^2 = \\frac{25}{9} \\approx 2.78 \\).</p>
+                                 </div>
+                             `));
+                         </script>
+                     </div>
+                 </div>
+
+             </div>
+         </section>
+
+        <section id="probabilites" class="mb-16 scroll-mt-20">
+             <script>document.getElementById('probabilites').appendChild(createSectionHeader('4. Probabilités et Statistiques', 'bar-chart-3'));</script>
+             <div class="bg-white p-6 rounded-xl shadow-md space-y-8">
+
+                <div class="subsection">
+                     <script>document.querySelector('#probabilites .subsection:nth-child(1)').insertBefore(createSubSectionHeader('4.1 Probabilités', 'dices', 'bg-purple-100 text-purple-900'), document.querySelector('#probabilites .subsection:nth-child(1)').firstChild);</script>
+                     <div class="subsection-content space-y-6"> <script>
+                             const proba1 = document.querySelector('#probabilites .subsection:nth-child(1) .subsection-content');
+                             proba1.appendChild(createBox('formula', 'Formules et concepts clés', 'book-marked', `
+                                 <p>Probabilité Théorique: \\( P(A) = \\frac{\\text{nb cas favorables}}{\\text{nb cas possibles}} \\)</p>
+                                 <p class="font-semibold mt-3 mb-1">Types d'événements :</p>
+                                 <ul class="list-disc pl-6 mb-3 space-y-1">
+                                     <li><strong>Certain</strong>: \\( P(A) = 1 \\) | <strong>Impossible</strong>: \\( P(A) = 0 \\) | <strong>Probable</strong>: \\( 0 < P(A) < 1 \\)</li>
+                                     <li><strong>Complémentaires</strong>: \\( P(\\text{non-}A) = 1 - P(A) \\)</li>
+                                     <li><strong>Incompatibles (mutuellement exclusifs)</strong>: Ne peuvent arriver en même temps. \\( P(A \\text{ ou } B) = P(A) + P(B) \\)</li>
+                                     <li><strong>Compatibles</strong>: Peuvent arriver en même temps. \\( P(A \\text{ ou } B) = P(A) + P(B) - P(A \\text{ et } B) \\)</li>
+                                     <li><strong>Indépendants</strong>: Le résultat de l'un n'influence pas l'autre. \\( P(A \\text{ et } B) = P(A) \\times P(B) \\)</li>
+                                     <li><strong>Dépendants</strong>: Le résultat de l'un influence l'autre (ex: sans remise). \\( P(A \\text{ et } B) = P(A) \\times P(B | A) \\)</li>
+                                 </ul>
+                             `));
+                             proba1.appendChild(createBox('example', 'Exemples', 'pencil', `
+                                <div>
+                                     <p><strong>Exemple 1:</strong> Dé à 6 faces. P(obtenir un nombre pair)?</p>
+                                     <p class="text-green-700 font-medium mt-1">Solution: Cas fav {2,4,6} (3). Cas poss {1,2,3,4,5,6} (6). \\( P(\\text{pair}) = \\frac{3}{6} = \\frac{1}{2} \\).</p>
+                                 </div>
+                                 <hr class="border-green-200">
+                                 <div>
+                                     <p><strong>Exemple 2:</strong> Jeu 52 cartes. P(tirer un As OU une Figure)?</p>
+                                     <p class="text-green-700 font-medium mt-1">Solution: As (4), Figures (12). Événements incompatibles. \\( P(\\text{As ou Figure}) = P(\\text{As}) + P(\\text{Figure}) = \\frac{4}{52} + \\frac{12}{52} = \\frac{16}{52} = \\frac{4}{13} \\).</p>
+                                  </div>
+                                  <hr class="border-green-200">
+                                 <div>
+                                     <p><strong>Exemple 3:</strong> Lancer deux dés. P(somme = 7)?</p>
+                                     <p class="text-green-700 font-medium mt-1">Solution: Cas fav {(1,6),(2,5),(3,4),(4,3),(5,2),(6,1)} (6). Cas poss = \\(6 \\times 6=36\\). \\( P(\\text{somme}=7) = \\frac{6}{36} = \\frac{1}{6} \\).</p>
+                                  </div>
+                                  <hr class="border-green-200">
+                                 <div>
+                                     <p><strong>Exemple 4:</strong> Lancer pièce 2 fois. P(au moins 1 Face)?</p>
+                                     <p class="text-green-700 font-medium mt-1">Solution: Complément: \\( P(\\text{0 Face}) = P(\\text{Pile, Pile}) = \\frac{1}{2} \\times \\frac{1}{2} = \\frac{1}{4} \\). Donc \\( P(\\text{au moins 1 Face}) = 1 - \\frac{1}{4} = \\frac{3}{4} \\).</p>
+                                 </div>
+                             `));
+                         </script>
+                     </div>
+                 </div>
+
+                <div class="subsection">
+                     <script>document.querySelector('#probabilites .subsection:nth-child(2)').insertBefore(createSubSectionHeader('4.2 Diagramme en arbre', 'git-fork', 'bg-purple-100 text-purple-900'), document.querySelector('#probabilites .subsection:nth-child(2)').firstChild);</script>
+                     <div class="subsection-content space-y-6"> <script>
+                             const proba2 = document.querySelector('#probabilites .subsection:nth-child(2) .subsection-content');
+                             proba2.appendChild(createBox('formula', 'Utilité du diagramme en arbre', 'book-marked', `
+                                 <p>Le diagramme en arbre est un outil visuel utile pour :</p>
+                                 <ul class="list-disc pl-6 space-y-1">
+                                     <li>Représenter toutes les issues d'expériences aléatoires en plusieurs étapes.</li>
+                                     <li>Calculer les probabilités d'événements composés (en multipliant les probabilités le long des branches).</li>
+                                     <li>Distinguer les situations avec remise (probabilités constantes) et sans remise (probabilités changent).</li>
+                                     <li>Visualiser les probabilités conditionnelles.</li>
+                                 </ul>
+                             `));
+                             proba2.appendChild(createBox('example', 'Exemple', 'pencil', `
+                                 <p><strong>Exemple :</strong> Urne: 2 Blanches (B), 3 Noires (N). Tirage de 2 boules SANS remise. P(au moins 1 Blanche)?</p>
+                                 <div class="text-green-700 font-medium mt-1 space-y-1">
+                                     Solution (via complément):
+                                     <p class="ml-4">On cherche \\( 1 - P(\\text{aucune Blanche}) = 1 - P(N, N) \\)</p>
+                                     <p class="ml-4">\\( P(N_1) = \\frac{3}{5} \\)</p>
+                                     <p class="ml-4">\\( P(N_2 | N_1) = \\frac{2}{4} \\) (il reste 2N et 2B)</p>
+                                     <p class="ml-4">\\( P(N, N) = P(N_1) \\times P(N_2 | N_1) = \\frac{3}{5} \\times \\frac{2}{4} = \\frac{6}{20} = \\frac{3}{10} \\)</p>
+                                     <p class="ml-4">\\( P(\\text{au moins 1 B}) = 1 - \\frac{3}{10} = \\frac{7}{10} \\).</p>
+                                     <p class="text-xs text-gray-500 ml-4">(Alternative: \\( P(B,B) + P(B,N) + P(N,B) = (\\frac{2}{5}\\times\\frac{1}{4}) + (\\frac{2}{5}\\times\\frac{3}{4}) + (\\frac{3}{5}\\times\\frac{2}{4}) = \\frac{2}{20} + \\frac{6}{20} + \\frac{6}{20} = \\frac{14}{20} = \\frac{7}{10} \\))</p>
+                                 </div>
+                             `));
+                         </script>
+                     </div>
+                 </div>
+
+                <div class="subsection">
+                     <script>document.querySelector('#probabilites .subsection:nth-child(3)').insertBefore(createSubSectionHeader('4.3 Diagrammes circulaires', 'pie-chart', 'bg-purple-100 text-purple-900'), document.querySelector('#probabilites .subsection:nth-child(3)').firstChild);</script>
+                     <div class="subsection-content space-y-6"> <script>
+                             const proba3 = document.querySelector('#probabilites .subsection:nth-child(3) .subsection-content');
+                             proba3.appendChild(createBox('formula', 'Création et interprétation', 'book-marked', `
+                                 <p>Représente des données sous forme de secteurs d'un cercle. L'angle de chaque secteur est proportionnel à la fréquence ou au pourcentage de la catégorie.</p>
+                                 <p class="mt-2">Étapes de création :</p>
+                                 <ol class="list-decimal pl-6 mb-3 space-y-1">
+                                     <li>Calculer le total des données.</li>
+                                     <li>Calculer la fraction ou le % de chaque catégorie.</li>
+                                     <li>Convertir en angle: \\( \\text{Angle} = \\text{Fraction} \\times 360^\\circ \\) ou \\( \\text{Angle} = \\text{Pourcentage} \\times 3.6^\\circ \\).</li>
+                                     <li>Tracer les secteurs (utiliser un rapporteur d'angle).</li>
+                                 </ol>
+                                 <p>Le cercle complet = \\( 360^\\circ = 100\\% \\).</p>
+                             `));
+                             proba3.appendChild(createBox('example', 'Exemple', 'pencil', `
+                                 <p><strong>Exemple :</strong> Répartition de 500 élèves. Calculer les angles.</p>
+                                 <div class="overflow-x-auto">
+                                     <table class="mb-3">
+                                         <thead><tr><th>Niveau</th><th>Nb Élèves</th><th>Fraction</th><th>Angle (°)</th></tr></thead>
+                                         <tbody>
+                                             <tr><td>Sec 1</td><td>120</td><td>\\(\\frac{120}{500} = 0.24\\)</td><td>\\(0.24 \\times 360^\\circ = 86.4^\\circ\\)</td></tr>
+                                             <tr><td>Sec 2</td><td>110</td><td>\\(\\frac{110}{500} = 0.22\\)</td><td>\\(0.22 \\times 360^\\circ = 79.2^\\circ\\)</td></tr>
+                                             <tr><td>Sec 3</td><td>105</td><td>\\(\\frac{105}{500} = 0.21\\)</td><td>\\(0.21 \\times 360^\\circ = 75.6^\\circ\\)</td></tr>
+                                             <tr><td>Sec 4</td><td>90</td><td>\\(\\frac{90}{500} = 0.18\\)</td><td>\\(0.18 \\times 360^\\circ = 64.8^\\circ\\)</td></tr>
+                                             <tr><td>Sec 5</td><td>75</td><td>\\(\\frac{75}{500} = 0.15\\)</td><td>\\(0.15 \\times 360^\\circ = 54.0^\\circ\\)</td></tr>
+                                             <tr><td><strong>Total</strong></td><td><strong>500</strong></td><td><strong>1.00</strong></td><td><strong>\\(360.0^\\circ\\)</strong></td></tr>
+                                         </tbody>
+                                     </table>
+                                 </div>
+                             `));
+                         </script>
+                     </div>
+                 </div>
+
+             </div>
+         </section>
+
+        <section id="strategie" class="mb-16 scroll-mt-20">
+            <script>document.getElementById('strategie').appendChild(createSectionHeader('5. Stratégies d\'étude et préparation', 'lightbulb'));</script>
+            <div class="bg-white p-6 rounded-xl shadow-md space-y-8">
+
+                <div class="subsection">
+                    <script>document.querySelector('#strategie .subsection:nth-child(1)').insertBefore(createSubSectionHeader('5.1 Préparation d\'un aide-mémoire efficace', 'notebook-pen', 'bg-orange-100 text-orange-900'), document.querySelector('#strategie .subsection:nth-child(1)').firstChild);</script>
+                    <div class="subsection-content space-y-6"> <script>
+                            const strat1 = document.querySelector('#strategie .subsection:nth-child(1) .subsection-content');
+                            strat1.appendChild(createBox('tip', 'Comment créer un bon aide-mémoire', 'lightbulb', `
+                                <p>Tu as droit à une feuille recto-verso. Optimise-la :</p>
+                                <ol class="list-decimal pl-6 space-y-1 mb-3 text-gray-700">
+                                    <li>Identifie tes points faibles (formules, étapes oubliées).</li>
+                                    <li>Organise par thèmes (Arithmétique, Algèbre...).</li>
+                                    <li>Utilise abréviations, symboles, couleurs.</li>
+                                    <li>Inclus des exemples courts pour les cas difficiles.</li>
+                                    <li>Écris petit mais lisiblement.</li>
+                                    <li>Prioritise l'information essentielle.</li>
+                                </ol>
+                                <p class="italic text-orange-700">Le simple fait de créer cette feuille est une excellente révision !</p>
+                            `));
+                            strat1.appendChild(createBox('formula', 'Contenu suggéré', 'list-checks', `
+                                 <ul class="list-disc pl-6 space-y-1 text-gray-700">
+                                     <li>Formules clés: Aires, périmètres, volumes, exposants, racines, probabilités, cercle (arc, secteur).</li>
+                                     <li>Étapes importantes: Résolution d'équations, opérations algébriques.</li>
+                                     <li>Conversions d'unités (longueur, aire, volume).</li>
+                                     <li>Propriétés des figures semblables (\\(k, k^2, k^3\\)).</li>
+                                     <li>Vocabulaire spécifique (ex: termes algébriques, types d'événements).</li>
+                                     <li>Exemples types que tu as du mal à résoudre.</li>
+                                 </ul>
+                             `));
+                        </script>
+                    </div>
+                </div>
+
+                <div class="subsection">
+                     <script>document.querySelector('#strategie .subsection:nth-child(2)').insertBefore(createSubSectionHeader('5.2 Techniques d\'étude', 'brain-circuit', 'bg-orange-100 text-orange-900'), document.querySelector('#strategie .subsection:nth-child(2)').firstChild);</script>
+                     <div class="subsection-content space-y-6"> <script>
+                             const strat2 = document.querySelector('#strategie .subsection:nth-child(2) .subsection-content');
+                             strat2.appendChild(createBox('tip', 'Méthodes d\'étude efficaces', 'dumbbell', `
+                                 <ol class="list-decimal pl-6 space-y-2 text-gray-700">
+                                     <li><strong>Pratique régulière :</strong> Mieux vaut 30 min chaque jour qu'une nuit blanche.</li>
+                                     <li><strong>Révision active :</strong> Ne fais pas que relire. Refais des exemples, explique les concepts à voix haute, crée des fiches.</li>
+                                     <li><strong>Alterance :</strong> Change de sujet régulièrement pour garder ton cerveau alerte.</li>
+                                     <li><strong>Auto-évaluation :</strong> Essaie de refaire les exemples sans regarder la solution. Identifie tes faiblesses.</li>
+                                     <li><strong>Groupes d'étude (si efficace pour toi) :</strong> Expliquer aux autres aide à comprendre.</li>
+                                     <li><strong>Pauses régulières :</strong> Étudie par blocs (ex: 45 min étude, 10 min pause) pour maintenir la concentration.</li>
+                                     <li><strong>Visualisation :</strong> Dessine les problèmes de géométrie, utilise des schémas.</li>
+                                 </ol>
+                             `));
+                         </script>
+                     </div>
+                 </div>
+
+                 <div class="subsection">
+                     <script>document.querySelector('#strategie .subsection:nth-child(3)').insertBefore(createSubSectionHeader('5.3 Le jour de l\'examen', 'calendar-check', 'bg-orange-100 text-orange-900'), document.querySelector('#strategie .subsection:nth-child(3)').firstChild);</script>
+                     <div class="subsection-content space-y-6"> <script>
+                             const strat3 = document.querySelector('#strategie .subsection:nth-child(3) .subsection-content');
+                             strat3.appendChild(createBox('tip', 'Conseils pour le jour J', 'check-circle-2', `
+                                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                     <div>
+                                         <h5 class="font-semibold mb-2 text-orange-800">Avant l'examen :</h5>
+                                         <ul class="list-disc pl-6 space-y-1 text-gray-700">
+                                             <li>Prépare ton matériel la veille (calculatrice chargée!, règle, aide-mémoire...).</li>
+                                             <li>Dors bien.</li>
+                                             <li>Mange bien (pas trop lourd).</li>
+                                             <li>Arrive un peu en avance, sans stress.</li>
+                                         </ul>
+                                     </div>
+                                     <div>
+                                         <h5 class="font-semibold mb-2 text-orange-800">Pendant l'examen :</h5>
+                                         <ul class="list-disc pl-6 space-y-1 text-gray-700">
+                                             <li>Lis chaque question attentivement (2 fois!).</li>
+                                             <li>Survole l'examen, commence par ce qui te semble facile.</li>
+                                             <li>Gère ton temps (note l'heure de début/fin).</li>
+                                             <li>Montre TOUTES tes démarches, même partielles.</li>
+                                             <li>Vérifie tes réponses si le temps le permet.</li>
+                                             <li>Ne laisse aucune question sans réponse (même si tu dois deviner à la fin).</li>
+                                             <li>Utilise ton aide-mémoire judicieusement.</li>
+                                         </ul>
+                                     </div>
+                                 </div>
+                                  <div class="mt-4">
+                                      <h5 class="font-semibold mb-2 text-orange-800">Gestion du stress :</h5>
+                                      <ul class="list-disc pl-6 space-y-1 text-gray-700">
+                                          <li>Respire profondément si tu paniques.</li>
+                                          <li>Concentre-toi sur une seule question à la fois.</li>
+                                          <li>Si tu bloques, passe à la suivante et reviens plus tard.</li>
+                                          <li>Fais confiance à ta préparation.</li>
+                                      </ul>
+                                  </div>
+                             `));
+                         </script>
+                     </div>
+                 </div>
+
+                 <div class="subsection">
+                     <script>document.querySelector('#strategie .subsection:nth-child(4)').insertBefore(createSubSectionHeader('5.4 Ressources supplémentaires', 'link', 'bg-orange-100 text-orange-900'), document.querySelector('#strategie .subsection:nth-child(4)').firstChild);</script>
+                     <div class="subsection-content"> <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                             <div class="bg-blue-50 border border-blue-200 p-4 rounded-lg">
+                                 <h4 class="font-semibold text-blue-800 mb-2 flex items-center gap-2">
+                                    <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/globe.svg" alt="" class="icon text-blue-600"> Sites web utiles
+                                 </h4>
+                                 <ul class="list-disc pl-7 text-gray-700 space-y-1 text-sm">
+                                     <li><a href="https://www.alloprof.qc.ca/fr/eleves/bv/mathematiques" target="_blank" class="text-blue-600 hover:underline hover:text-blue-800 transition duration-200">Alloprof - Mathématiques</a></li>
+                                     <li><a href="https://www.education.gouv.qc.ca/fileadmin/site_web/documents/education/jeunes/pfeq/PDA_PFEQ_mathematique-secondaire_2016.pdf" target="_blank" class="text-blue-600 hover:underline hover:text-blue-800 transition duration-200">Progression des apprentissages - MEQ</a></li>
+                                     <li><a href="https://fr.khanacademy.org/math" target="_blank" class="text-blue-600 hover:underline hover:text-blue-800 transition duration-200">Khan Academy (Français)</a></li>
+                                 </ul>
+                             </div>
+                             <div class="bg-red-50 border border-red-200 p-4 rounded-lg">
+                                 <h4 class="font-semibold text-red-800 mb-2 flex items-center gap-2">
+                                    <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/youtube.svg" alt="" class="icon text-red-600"> Vidéos éducatives
+                                 </h4>
+                                  <ul class="list-disc pl-7 text-gray-700 space-y-1 text-sm">
+                                      <li><a href="https://www.youtube.com/@Alloprof" target="_blank" class="text-red-600 hover:underline hover:text-red-800 transition duration-200">Chaîne YouTube Alloprof</a></li>
+                                      <li>Recherche "Math Secondaire 2 Québec" sur YouTube</li>
+                                  </ul>
+                             </div>
+                             <div class="bg-green-50 border border-green-200 p-4 rounded-lg">
+                                 <h4 class="font-semibold text-green-800 mb-2 flex items-center gap-2">
+                                    <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/wrench.svg" alt="" class="icon text-green-600"> Outils en ligne
+                                 </h4>
+                                 <ul class="list-disc pl-7 text-gray-700 space-y-1 text-sm">
+                                     <li><a href="https://www.geogebra.org" target="_blank" class="text-green-600 hover:underline hover:text-green-800 transition duration-200">GeoGebra (Géométrie)</a></li>
+                                     <li><a href="https://www.desmos.com/calculator" target="_blank" class="text-green-600 hover:underline hover:text-green-800 transition duration-200">Desmos (Graphiques)</a></li>
+                                     <li><a href="https://www.wolframalpha.com/" target="_blank" class="text-green-600 hover:underline hover:text-green-800 transition duration-200">Wolfram Alpha (Calculs)</a></li>
+                                 </ul>
+                             </div>
+                             <div class="bg-yellow-50 border border-yellow-200 p-4 rounded-lg">
+                                 <h4 class="font-semibold text-yellow-800 mb-2 flex items-center gap-2">
+                                     <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/book-open.svg" alt="" class="icon text-yellow-600"> Manuels et cahiers
+                                 </h4>
+                                 <ul class="list-disc pl-7 text-gray-700 space-y-1 text-sm">
+                                     <li>Ton manuel scolaire principal</li>
+                                     <li>Cahiers d'exercices (ex: Point de Mire, Panoramath)</li>
+                                     <li>Livres de préparation aux examens (si disponibles)</li>
+                                 </ul>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-800 text-gray-300 py-8 mt-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+                <div class="mb-4 md:mb-0">
+                    <h2 class="text-lg font-semibold text-white mb-1">Prépa Examen Math S2</h2>
+                    <p class="text-sm">Un outil pour t'aider à réussir.</p>
+                </div>
+                <div class="text-sm">
+                    <p class="mb-1">Basé sur le Programme de formation de l'école québécoise.</p>
+                    <p>© <span id="currentYear"></span> - Bon succès!</p>
+                </div>
+            </div>
+            <div class="mt-6 border-t border-gray-700 pt-4 text-center text-xs text-gray-400">
+                <p>Sources principales: Alloprof, MEQ. Icônes par Lucide.</p>
+            </div>
+        </div>
+    </footer>
+
+    <button id="scrollToTop" title="Remonter en haut" class="fixed bottom-5 right-5 bg-blue-600 hover:bg-blue-700 text-white p-3 rounded-full shadow-lg transition duration-300 opacity-0 pointer-events-none z-40">
+        <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/arrow-up.svg" alt="Remonter" class="w-5 h-5">
+    </button>
+
+    <script>
+        // --- Menu Hamburger ---
+        const menuButton = document.getElementById('menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+        const header = document.querySelector('header');
+        const iconMenu = "https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/menu.svg";
+        const iconX = "https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/x.svg";
+
+        menuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            menuIcon.src = mobileMenu.classList.contains('hidden') ? iconMenu : iconX;
+        });
+        // Note: Le script de smooth scroll ci-dessous ferme aussi le menu mobile au clic
+
+        document.addEventListener('click', (event) => {
+            if (!header.contains(event.target) && !mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+                menuIcon.src = iconMenu;
+            }
+        });
+
+        // --- Bouton Scroll to Top ---
+        const scrollToTopButton = document.getElementById('scrollToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollToTopButton.style.opacity = '1';
+                scrollToTopButton.style.pointerEvents = 'auto';
+            } else {
+                scrollToTopButton.style.opacity = '0';
+                scrollToTopButton.style.pointerEvents = 'none';
+            }
+        });
+        scrollToTopButton.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // --- Année actuelle dans le footer ---
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // --- Smooth Scrolling for Navigation Links ---
+        document.querySelectorAll('header nav a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    const headerElement = document.querySelector('header');
+                    const headerOffset = headerElement ? headerElement.offsetHeight : 70;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.scrollY - headerOffset - 20;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+
+                    if (!mobileMenu.classList.contains('hidden')) {
+                         mobileMenu.classList.add('hidden');
+                         menuIcon.src = iconMenu;
+                    }
+                }
+            });
+        });
+
+    </script>
+
+</body>
+</html>
