@@ -12,16 +12,17 @@
     <script>
         MathJax = {
           tex: {
-            inlineMath: [['\\(', '\\)']], // Délimiteurs pour les maths en ligne
-            displayMath: [['\\[', '\\]']], // Délimiteurs pour les maths affichées
-            processEscapes: true // Permet d'utiliser \$ pour le symbole dollar
+            inlineMath: [['\\(', '\\)']],
+            displayMath: [['\\[', '\\]']],
+            processEscapes: true
           },
           svg: {
-            fontCache: 'global' // Améliore la performance
+            fontCache: 'global'
           }
         };
     </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+
     <style>
       body {
         font-family: 'Inter', sans-serif;
@@ -35,29 +36,29 @@
         transition: color 0.2s ease-in-out;
       }
       details > summary::-webkit-details-marker { display: none; }
-      details[open] > summary { color: #1d4ed8; } /* text-blue-800 */
+      details[open] > summary { color: #1d4ed8; }
 
       table {
         width: 100%;
         border-collapse: collapse;
         margin-top: 1rem;
         margin-bottom: 1rem;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* shadow-sm */
-        border-radius: 0.5rem; /* rounded-lg */
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        border-radius: 0.5rem;
         overflow: hidden;
       }
       th, td {
-        border: 1px solid #d1d5db; /* border-gray-300 */
-        padding: 0.75rem 1rem; /* p-3 px-4 */
+        border: 1px solid #d1d5db;
+        padding: 0.75rem 1rem;
         text-align: left;
         vertical-align: top;
       }
       th {
-        background-color: #f3f4f6; /* bg-gray-100 */
-        font-weight: 600; /* font-semibold */
-        color: #374151; /* text-gray-700 */
+        background-color: #f3f4f6;
+        font-weight: 600;
+        color: #374151;
       }
-      tbody tr:nth-child(even) { background-color: #f9fafb; } /* bg-gray-50 */
+      tbody tr:nth-child(even) { background-color: #f9fafb; }
 
       .icon {
         display: inline-block;
@@ -82,64 +83,59 @@
          transform: rotate(180deg);
        }
        section[id] {
-           scroll-margin-top: 80px; /* Ajustez cette valeur si la hauteur du header change */
+           scroll-margin-top: 80px;
        }
-       .scroll-mt-20 { /* correspond à 5rem ou 80px */
+       .scroll-mt-20 {
            scroll-margin-top: 5rem;
        }
 
-       /* Ajustement pour l'espacement des formules MathJax */
        mjx-container[jax="SVG"] {
            display: inline-block;
-           margin: 0 0.15em; /* Ajoute une petite marge horizontale */
+           margin: 0 0.15em;
            vertical-align: baseline;
        }
        mjx-container[jax="SVG"][display="true"] {
            display: block;
-           margin: 1em 0; /* Espace vertical pour les formules display */
+           margin: 1em 0;
        }
-
 
     </style>
 </head>
 <body class="bg-gray-100 text-gray-800 antialiased">
 
     <header class="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-5 shadow-lg sticky top-0 z-50">
-        <div class="container mx-auto px-6">
-            <div class="flex justify-between items-center">
-                <h1 class="text-2xl md:text-3xl font-bold tracking-tight flex items-center gap-2">
-                    <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/calculator.svg" alt="Calculatrice" class="inline-block w-8 h-8">
-                    Prépa Examen Math S2
-                </h1>
-                <nav class="hidden md:block">
-                    <ul class="flex space-x-6">
-                        <li><a href="#introduction" class="hover:text-blue-200 transition duration-200">Introduction</a></li>
-                        <li><a href="#arithmetique" class="hover:text-blue-200 transition duration-200">Arithmétique</a></li>
-                        <li><a href="#algebre" class="hover:text-blue-200 transition duration-200">Algèbre</a></li>
-                        <li><a href="#modes-representation" class="hover:text-blue-200 transition duration-200">Représentation</a></li>
-                        <li><a href="#geometrie" class="hover:text-blue-200 transition duration-200">Géométrie</a></li>
-                        <li><a href="#probabilites" class="hover:text-blue-200 transition duration-200">Probabilités</a></li>
-                        <li><a href="#strategie" class="hover:text-blue-200 transition duration-200">Stratégies</a></li>
-                    </ul>
-                </nav>
-                <button id="menu-button" class="md:hidden focus:outline-none p-2 -mr-2">
-                     <img id="menu-icon" src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/menu.svg" alt="Menu" class="w-6 h-6">
-                 </button>
+        <div class="container mx-auto px-6 flex justify-between items-center gap-4">
+            <div class="flex items-center gap-3 flex-shrink-0">
+                <img src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/calculator.svg" alt="Calculatrice" class="inline-block w-8 h-8">
+                <span class="text-xl font-bold tracking-tight">Prépa Examen Math S2</span>
             </div>
-            <nav id="mobile-menu" class="md:hidden hidden mt-4 bg-blue-700 rounded-md shadow-lg">
-                 <ul class="flex flex-col py-2">
-                     <li><a href="#introduction" class="block py-2 px-4 hover:bg-blue-600 transition duration-200">Introduction</a></li>
-                     <li><a href="#arithmetique" class="block py-2 px-4 hover:bg-blue-600 transition duration-200">Arithmétique</a></li>
-                     <li><a href="#algebre" class="block py-2 px-4 hover:bg-blue-600 transition duration-200">Algèbre</a></li>
-                     <li><a href="#modes-representation" class="block py-2 px-4 hover:bg-blue-600 transition duration-200">Représentation</a></li>
-                     <li><a href="#geometrie" class="block py-2 px-4 hover:bg-blue-600 transition duration-200">Géométrie</a></li>
-                     <li><a href="#probabilites" class="block py-2 px-4 hover:bg-blue-600 transition duration-200">Probabilités</a></li>
-                     <li><a href="#strategie" class="block py-2 px-4 hover:bg-blue-600 transition duration-200">Stratégies</a></li>
-                 </ul>
-             </nav>
-        </div>
-    </header>
 
+            <nav class="hidden md:flex items-center space-x-3 flex-wrap justify-end">
+                <a href="#introduction" class="px-3 py-1 rounded-md hover:bg-blue-700/50 transition-colors duration-200">Introduction</a>
+                <a href="#arithmetique" class="px-3 py-1 rounded-md hover:bg-blue-700/50 transition-colors duration-200">Arithmétique</a>
+                <a href="#algebre" class="px-3 py-1 rounded-md hover:bg-blue-700/50 transition-colors duration-200">Algèbre</a>
+                <a href="#modes-representation" class="px-3 py-1 rounded-md hover:bg-blue-700/50 transition-colors duration-200">Représentation</a>
+                <a href="#geometrie" class="px-3 py-1 rounded-md hover:bg-blue-700/50 transition-colors duration-200">Géométrie</a>
+                <a href="#probabilites" class="px-3 py-1 rounded-md hover:bg-blue-700/50 transition-colors duration-200">Probabilités</a>
+                <a href="#strategie" class="px-3 py-1 rounded-md hover:bg-blue-700/50 transition-colors duration-200">Stratégies</a>
+            </nav>
+
+            <button id="menu-button" class="md:hidden focus:outline-none p-2 -mr-2 flex-shrink-0">
+                 <img id="menu-icon" src="https://cdn.jsdelivr.net/npm/lucide-static@latest/icons/menu.svg" alt="Menu" class="w-6 h-6">
+             </button>
+        </div>
+        <nav id="mobile-menu" class="md:hidden hidden mt-4 bg-blue-700 rounded-md shadow-lg mx-6">
+             <ul class="flex flex-col py-2">
+                 <li><a href="#introduction" class="block py-2 px-4 hover:bg-blue-600 transition duration-200 rounded-md">Introduction</a></li>
+                 <li><a href="#arithmetique" class="block py-2 px-4 hover:bg-blue-600 transition duration-200 rounded-md">Arithmétique</a></li>
+                 <li><a href="#algebre" class="block py-2 px-4 hover:bg-blue-600 transition duration-200 rounded-md">Algèbre</a></li>
+                 <li><a href="#modes-representation" class="block py-2 px-4 hover:bg-blue-600 transition duration-200 rounded-md">Représentation</a></li>
+                 <li><a href="#geometrie" class="block py-2 px-4 hover:bg-blue-600 transition duration-200 rounded-md">Géométrie</a></li>
+                 <li><a href="#probabilites" class="block py-2 px-4 hover:bg-blue-600 transition duration-200 rounded-md">Probabilités</a></li>
+                 <li><a href="#strategie" class="block py-2 px-4 hover:bg-blue-600 transition duration-200 rounded-md">Stratégies</a></li>
+             </ul>
+         </nav>
+    </header>
     <main class="container mx-auto px-6 py-10">
 
         <section id="introduction" class="mb-16 scroll-mt-20">
@@ -232,7 +228,6 @@
         </section>
 
         <script>
-            // Fonction utilitaire pour créer une icône SVG
             function createIcon(iconName, altText = "", classes = "icon") {
                 if (!iconName) return '';
                 const img = document.createElement('img');
@@ -243,7 +238,6 @@
                 return img.outerHTML;
             }
 
-            // Crée un en-tête de section principal
             function createSectionHeader(title, iconName) {
                 const h2 = document.createElement('h2');
                 h2.className = 'text-2xl font-bold mb-6 text-white bg-gradient-to-r from-blue-600 to-blue-700 p-4 rounded-lg shadow-md flex items-center gap-3';
@@ -251,7 +245,6 @@
                 return h2;
             }
 
-            // Crée un en-tête de sous-section
             function createSubSectionHeader(title, iconName, colorClasses) {
                 const h3 = document.createElement('h3');
                 h3.className = `text-xl font-semibold mb-4 p-3 rounded-md flex items-center gap-2 ${colorClasses}`;
@@ -259,7 +252,6 @@
                 return h3;
             }
 
-            // Crée une boîte de contenu (formule, exemple, conseil)
             function createBox(type, title, iconName, contentHtml) {
                 if (type === 'exercise') return null;
 
@@ -276,11 +268,10 @@
                     case 'tip':
                         bgColor = 'bg-orange-50'; borderColor = 'border-orange-200'; titleColor = 'text-orange-800'; iconColorClass = 'text-orange-500';
                         break;
-                    default: // Couleur par défaut pour la section Représentation
+                    default:
                          bgColor = 'bg-indigo-50'; borderColor = 'border-indigo-200'; titleColor = 'text-indigo-800'; iconColorClass = 'text-indigo-600';
                 }
 
-                // Surcharge pour les types spécifiques si nécessaire (pour garder les couleurs originales dans les autres sections)
                  if (type === 'formula') { bgColor = 'bg-blue-50'; borderColor = 'border-blue-200'; titleColor = 'text-blue-800'; iconColorClass = 'text-blue-600'; }
                  if (type === 'example') { bgColor = 'bg-green-50'; borderColor = 'border-green-200'; titleColor = 'text-green-800'; iconColorClass = 'text-green-600'; }
                  if (type === 'tip') { bgColor = 'bg-orange-50'; borderColor = 'border-orange-200'; titleColor = 'text-orange-800'; iconColorClass = 'text-orange-500'; }
@@ -299,7 +290,6 @@
                 return div;
             }
 
-             // Fonction pour créer les solutions - INUTILISÉE
              function createSolutionDetails(solutionHtml) { return null; }
         </script>
 
